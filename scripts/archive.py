@@ -622,6 +622,8 @@ DirectoryIndex index.html
 """,
         encoding="utf-8",
     )
+    # GitHub Pages runs Jekyll by default and skips paths starting with "_".
+    (OUTPUT_DIR / ".nojekyll").touch()
 
 
 def run_playwright_discovery(pages: list[str], manifest: dict) -> None:

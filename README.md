@@ -22,6 +22,15 @@ Open http://localhost:8765/
 
 Upload the entire `site/` directory to your web server document root.
 
+### GitHub Pages
+
+This repo publishes from the `docs/` folder to
+https://whitnelson.github.io/philiphaebler/
+
+After re-archiving, sync the build output into `docs/` and keep `.nojekyll` at
+the root of `docs/`. Without it, GitHub Pages' Jekyll step strips the `_assets/`
+directory and the site loads without CSS, JavaScript, or images.
+
 Apache users: `.htaccess` is included for directory index routing.
 
 Nginx example:
