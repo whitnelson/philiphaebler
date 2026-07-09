@@ -33,10 +33,9 @@ After re-archiving, sync the build output into `docs/`, then run:
 python3 scripts/patch_github_pages.py
 ```
 
-That adds `.nojekyll`, rewrites Squarespace CDN URLs to local `_assets/`,
-fixes Typekit font paths for the `/philiphaebler/` base URL, and injects a
-runtime rewriter so dynamically loaded CSS/JS also resolves locally. Without
-`.nojekyll`, GitHub Pages' Jekyll step strips the `_assets/` directory entirely.
+That adds `.nojekyll`, rewrites asset paths to neutral names (so ad blockers
+do not match `squarespace.com` in URLs), uses absolute `/philiphaebler/...`
+paths, and injects a runtime rewriter for any remaining CDN references.
 
 Apache users: `.htaccess` is included for directory index routing.
 

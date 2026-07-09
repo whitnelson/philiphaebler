@@ -4,55 +4,104 @@
 from __future__ import annotations
 
 import argparse
-import os
 import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-HOST_PREFIXES = (
-    "assets.squarespace.com",
-    "static1.squarespace.com",
-    "images.squarespace-cdn.com",
-    "definitions.sqspcdn.com",
-    "static.squarespace.com",
-    "use.typekit.net",
-    "p.typekit.net",
-)
+# Neutral directory names avoid ad blockers that match "squarespace" in URLs.
+HOST_MAP = {
+    "assets.squarespace.com": "asq",
+    "static1.squarespace.com": "st1",
+    "images.squarespace-cdn.com": "img",
+    "definitions.sqspcdn.com": "def",
+    "static.squarespace.com": "stq",
+    "use.typekit.net": "tk",
+    "p.typekit.net": "pkt",
+}
 
-PROTOCOL_HOST_RE = re.compile(
-    r"(?P<quote>['\"]?)(?P<url>(?:https?:)?//(?P<host>"
-    + "|".join(re.escape(h) for h in HOST_PREFIXES)
-    + r")(?P<path>/[^\"'\\s<>)]*))",
-    re.IGNORECASE,
-)
-
-RUNTIME_PATCH = """<script data-github-pages-base="">(function(){var m=location.pathname.match(/^\\/([^/]+)\\//);var base=(location.hostname.endsWith('.github.io')&&m)?'/'+m[1]:'';if(!base)return;var maps=[['https://assets.squarespace.com',base+'/_assets/assets.squarespace.com'],['http://assets.squarespace.com',base+'/_assets/assets.squarespace.com'],['//assets.squarespace.com',base+'/_assets/assets.squarespace.com'],['https://static1.squarespace.com',base+'/_assets/static1.squarespace.com'],['http://static1.squarespace.com',base+'/_assets/static1.squarespace.com'],['//static1.squarespace.com',base+'/_assets/static1.squarespace.com'],['https://images.squarespace-cdn.com',base+'/_assets/images.squarespace-cdn.com'],['http://images.squarespace-cdn.com',base+'/_assets/images.squarespace-cdn.com'],['//images.squarespace-cdn.com',base+'/_assets/images.squarespace-cdn.com'],['https://definitions.sqspcdn.com',base+'/_assets/definitions.sqspcdn.com'],['http://definitions.sqspcdn.com',base+'/_assets/definitions.sqspcdn.com'],['//definitions.sqspcdn.com',base+'/_assets/definitions.sqspcdn.com']];function rw(u){if(!u||typeof u!=='string')return u;for(var i=0;i<maps.length;i++){if(u.indexOf(maps[i][0])===0)return maps[i][1]+u.slice(maps[i][0].length);}return u;}if(window.fetch){var f=window.fetch.bind(window);window.fetch=function(i,n){if(typeof i==='string')i=rw(i);else if(i&&i.url){try{i=new Request(rw(i.url),i);}catch(e){}}return f(i,n);};}var o=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(m,u){arguments[1]=rw(u);return o.apply(this,arguments);};var c=document.createElement.bind(document);document.createElement=function(t){var el=c(t);if(t&&(t.toLowerCase()==='script'||t.toLowerCase()==='link')){var s=el.setAttribute.bind(el);el.setAttribute=function(n,v){if((n==='src'||n==='href')&&v)v=rw(v);return s(n,v);};}return el;};})();</script>"""
+TEXT_SUFFIXES = {".html", ".js", ".css", ".svg", ".json"}
 
 
-def rel_path_from(source_file: Path, target_file: Path) -> str:
-    rel = os.path.relpath(target_file, source_file.parent)
-    return rel.replace(os.sep, "/")
+def build_runtime_patch(base: str) -> str:
+    pairs = []
+    for host, short in HOST_MAP.items():
+        target = f"{base}/_assets/{short}"
+        for prefix in ("https:", "http:", ""):
+            src = f"{prefix}//{host}" if prefix else f"//{host}"
+            pairs.append(f"['{src}','{target}']")
+    maps = ",".join(pairs)
+    return (
+        '<script data-github-pages-base="">(function(){var m=location.pathname.match(/^\\/([^/]+)\\//);'
+        "var base=(location.hostname.endsWith('.github.io')&&m)?'/'+m[1]:'';if(!base)return;"
+        f"var maps=[{maps}];"
+        "function rw(u){if(!u||typeof u!=='string')return u;for(var i=0;i<maps.length;i++){"
+        "if(u.indexOf(maps[i][0])===0)return maps[i][1]+u.slice(maps[i][0].length);}return u;}"
+        "if(window.fetch){var f=window.fetch.bind(window);window.fetch=function(i,n){"
+        "if(typeof i==='string')i=rw(i);else if(i&&i.url){try{i=new Request(rw(i.url),i);}catch(e){}}"
+        "return f(i,n);};}"
+        "var o=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(m,u){"
+        "arguments[1]=rw(u);return o.apply(this,arguments);};"
+        "var c=document.createElement.bind(document);document.createElement=function(t){"
+        "var el=c(t);if(t&&(t.toLowerCase()==='script'||t.toLowerCase()==='link')){"
+        "var s=el.setAttribute.bind(el);el.setAttribute=function(n,v){"
+        "if((n==='src'||n==='href')&&v)v=rw(v);return s(n,v);};}return el;};})();</script>"
+    )
 
 
-def local_asset_path(site_dir: Path, host: str, path: str) -> Path | None:
-    candidate = site_dir / "_assets" / host / path.lstrip("/")
-    if candidate.exists():
-        return candidate
-    return None
+def rename_asset_dirs(site_dir: Path) -> None:
+    assets_root = site_dir / "_assets"
+    if not assets_root.is_dir():
+        return
+    for old_host, short in HOST_MAP.items():
+        old_dir = assets_root / old_host
+        new_dir = assets_root / short
+        if old_dir.is_dir() and not new_dir.exists():
+            old_dir.rename(new_dir)
 
 
-def rewrite_protocol_urls(text: str, source_file: Path, site_dir: Path) -> str:
-    def replace(match: re.Match) -> str:
-        host = match.group("host")
-        path = match.group("path")
-        local = local_asset_path(site_dir, host, path)
-        if not local:
-            return match.group(0)
-        rel = rel_path_from(source_file, local)
-        return f"{match.group('quote')}{rel}"
+def asset_url(base: str, short: str) -> str:
+    return f"{base.rstrip('/')}/_assets/{short}"
 
-    return PROTOCOL_HOST_RE.sub(replace, text)
+
+def rewrite_asset_paths(text: str, base: str) -> str:
+    for host, short in HOST_MAP.items():
+        target = asset_url(base, short)
+        text = re.sub(
+            rf"(?:\.\./)*_assets/{re.escape(host)}",
+            target,
+            text,
+        )
+        text = re.sub(
+            rf"https?://{re.escape(host)}",
+            target,
+            text,
+        )
+
+    text = re.sub(r"<base href=\"\"\s*/?>", "", text)
+    return text
+
+
+def rewrite_all_text_files(site_dir: Path, base: str) -> int:
+    changed = 0
+    for path in site_dir.rglob("*"):
+        if not path.is_file() or path.name == ".nojekyll":
+            continue
+        try:
+            text = path.read_text(encoding="utf-8", errors="strict")
+        except (UnicodeDecodeError, OSError):
+            continue
+        if not any(token in text for token in ("squarespace", "sqspcdn", "typekit.net", "_assets/")):
+            continue
+        new = rewrite_asset_paths(text, base)
+        if path.suffix == ".html":
+            new = inject_runtime_patch(new, base)
+        if "/_assets/tk/" in str(path) and path.suffix == ".js":
+            new = patch_typekit_js(new, base)
+        if new != text:
+            path.write_text(new, encoding="utf-8")
+            changed += 1
+    return changed
 
 
 def patch_typekit_js(text: str, base: str) -> str:
@@ -61,9 +110,10 @@ def patch_typekit_js(text: str, base: str) -> str:
         if f'"{base}/indexaf/' not in text:
             text = text.replace('"/indexaf/', f'"{base}/indexaf/')
             text = text.replace("'/indexaf/", f"'{base}/indexaf/")
-        if f'"{base}/p.typekit.net/' not in text:
-            text = text.replace('"/p.typekit.net/', f'"{base}/p.typekit.net/')
-            text = text.replace("'/p.typekit.net/", f"'{base}/p.typekit.net/")
+        pkt = f"{base}/pkt"
+        if f'"{pkt}/' not in text:
+            text = text.replace('"/p.typekit.net/', f'"{pkt}/')
+            text = text.replace("'/p.typekit.net/", f"'{pkt}/")
     text = text.replace(
         "if(this.j&&(a=location.hostname,!this.j.has(a)))",
         "if(false&&(a=location.hostname,!this.j.has(a)))",
@@ -85,36 +135,39 @@ def patch_internal_links(text: str, base: str) -> str:
     return re.sub(r'href="(/(?!/)[^"]*)"', replace_href, text)
 
 
-def inject_runtime_patch(text: str) -> str:
+def inject_runtime_patch(text: str, base: str) -> str:
+    patch = build_runtime_patch(base.rstrip("/"))
     if 'data-github-pages-base=""' in text:
+        text = re.sub(
+            r'<script data-github-pages-base="">.*?</script>',
+            patch,
+            text,
+            count=1,
+            flags=re.DOTALL,
+        )
         return text
     marker = "<head>"
     if marker not in text:
         return text
-    return text.replace(marker, marker + RUNTIME_PATCH, 1)
+    return text.replace(marker, marker + patch, 1)
 
 
 def patch_tree(site_dir: Path, base: str) -> int:
+    rename_asset_dirs(site_dir)
+    pkt_root = site_dir / "p.typekit.net"
+    pkt_target = site_dir / "pkt"
+    if pkt_root.is_dir() and not pkt_target.exists():
+        pkt_root.rename(pkt_target)
+
     changed = 0
-    for path in site_dir.rglob("*"):
-        if not path.is_file():
-            continue
-        if path.name == ".nojekyll":
-            continue
-        if path.suffix not in {".html", ".js", ".css", ".svg"}:
-            continue
-
+    for path in site_dir.rglob("*.html"):
         text = path.read_text(encoding="utf-8", errors="replace")
-        new = rewrite_protocol_urls(text, path, site_dir)
-        if path.suffix == ".html":
-            new = patch_internal_links(new, base)
-            new = inject_runtime_patch(new)
-        if "use.typekit.net/ik/" in str(path) and path.suffix == ".js":
-            new = patch_typekit_js(new, base)
-
+        new = patch_internal_links(text, base)
         if new != text:
             path.write_text(new, encoding="utf-8")
             changed += 1
+
+    changed += rewrite_all_text_files(site_dir, base)
     return changed
 
 

@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="https://afwebcdn.fonts.adobe.com/assets/ng-cloak-e19b998bf60bb92b71592dd5c5dbf0c25ae38c778f8f7514a19ded1365497adc.css" />
 
     
-<link rel="preconnect" href="https://use.typekit.net" />
+<link rel="preconnect" href="https:/philiphaebler/_assets/tk" />
 <link rel="preconnect" href="https://platform-assets.typekit.net" />
 <link rel="preconnect" href="https://assets.adobedtm.com" />
 <link rel="preconnect" href="https://cdn.cookielaw.org" />
 <link rel="preconnect" href="https://www.adobe.com" />
 
-  <link rel="preload" href="https://use.typekit.net/ynd8vkt.css" as="style" />
-<link rel="preload" href="https://use.typekit.net/ajd7quw.js" as="script" />
+  <link rel="preload" href="https:/philiphaebler/_assets/tk/ynd8vkt.css" as="style" />
+<link rel="preload" href="https:/philiphaebler/_assets/tk/ajd7quw.js" as="script" />
 
   <link rel="preload" href="https://prod.adobeccstatic.com/top-app-bar/1.0/TopAppBar.js" as="script" />
   <link rel="preload" href="https://prod.adobeccstatic.com/top-app-bar/1.0/assets/fonts_background.svg" as="image" />
@@ -58,8 +58,8 @@
       {"EnableFontDiscoverySearch":true}
     </script>
 
-    <link rel="stylesheet" href="https://use.typekit.net/ynd8vkt.css" defer>
-<script src="https://use.typekit.net/ajd7quw.js" defer></script>
+    <link rel="stylesheet" href="https:/philiphaebler/_assets/tk/ynd8vkt.css" defer>
+<script src="https:/philiphaebler/_assets/tk/ajd7quw.js" defer></script>
 <script id="dynamic-kit-config" type="application/json">
   {"user":"tk","token":"UWiewzNGqfaXgl50sfTX597VqiNVO+VsJvzyIM5SabTjZinSwqaidRKypEX3LMfHdBUibNmD+PCRx/5yCXr4NA=="}
 </script>
