@@ -1,0 +1,492 @@
+.sqs-block[data-definition-name="website.components.summary"] {
+  /*  Summary V2 Block - Base Styles
+=================================================*/
+  /* stylelint-disable no-duplicate-selectors */
+  /* ----- Metadata Display Settings ----- */
+  /* ----- Text Size Display Settings ----- */
+  /* ----- Text Alignment Display Settings ----- */
+  /* ----- Blog ----- */
+  /* ----- Events ----- */
+  /* ----- Content Visibility Settings ----- */
+  /* ----- List Layout ----- */
+  /* ----- Carousel Layout ----- */
+  /* ----- Mobile Layout ----- */
+}
+.sqs-block[data-definition-name="website.components.summary"] * {
+  box-sizing: border-box;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-thumbnail-outer-container {
+  position: relative;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-heading {
+  display: none;
+  margin: 0 0 15px 0;
+  padding-right: 10px;
+  font-size: 14px;
+  line-height: normal;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-carousel-pager {
+  display: none;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-item-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-item {
+  visibility: hidden;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-item.positioned {
+  visibility: visible;
+}
+.sqs-style-mode-active .sqs-block[data-definition-name="website.components.summary"] .is-product-quick-view-enabled .summary-item:first-child .sqs-product-quick-view-button-wrapper {
+  opacity: 1;
+}
+.sqs-style-mode-active .sqs-block[data-definition-name="website.components.summary"] .is-product-quick-view-enabled .summary-item:first-child .sqs-product-mark-wrapper {
+  opacity: 0;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-thumbnail-container {
+  position: relative;
+  display: block;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-thumbnail-container:hover {
+  opacity: 1 !important;
+}
+.sqs-block[data-definition-name="website.components.summary"] .img-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.sqs-block[data-definition-name="website.components.summary"] .img-wrapper img {
+  opacity: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  font-size: 13px;
+  line-height: normal;
+  transition: opacity 0.6s ease;
+}
+.sqs-block[data-definition-name="website.components.summary"] .img-wrapper img.loaded {
+  opacity: 1;
+}
+.sqs-block[data-definition-name="website.components.summary"] .img-wrapper img:not(.loaded) .sqs-product-mark-wrapper,
+.sqs-block[data-definition-name="website.components.summary"] .img-wrapper img:not(.loaded) .sqs-product-quick-view-button-wrapper {
+  opacity: 0 !important;
+}
+.sqs-block[data-definition-name="website.components.summary"] .sqs-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.sqs-block[data-definition-name="website.components.summary"] .sqs-video-wrapper .sqs-video-overlay img {
+  display: block;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-product-status .product-mark {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  padding: 6px 8px;
+  background: #222;
+  color: #fff;
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: content-box;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-thumbnail-event-date {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+  padding: 3px;
+  background: white;
+  text-align: center;
+  box-sizing: content-box;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-thumbnail-event-date-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-thumbnail-event-date-month {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-thumbnail-event-date-day {
+  display: block;
+  color: #333;
+  font-size: 26px;
+  line-height: 26px;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-content {
+  text-align: left;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-title {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  line-height: 1.2em;
+  text-align: left;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-price {
+  margin: 0 0 10px 0;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-price .product-price {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-price .product-price .original-price {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  text-decoration: line-through;
+}
+.sqs-block[data-definition-name="website.components.summary"] .product-scarcity {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+  margin: 0 0 10px 0;
+  color: #000000;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt {
+  margin: 0 0 10px 0;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt p,
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt ul,
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt li {
+  font-size: 14px;
+  line-height: 1.4em;
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt p:first-of-type,
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt ul:first-of-type,
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt li:first-of-type {
+  margin-top: 0 !important;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt p:last-of-type,
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt ul:last-of-type,
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt li:last-of-type {
+  margin-bottom: 0 !important;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt > blockquote p {
+  font-size: inherit;
+  line-height: inherit;
+  margin: inherit;
+  text-align: inherit;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt > blockquote p:first-of-type {
+  margin-top: inherit;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-excerpt > blockquote p:last-of-type {
+  margin-bottom: inherit;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-hide-description {
+  display: none;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-collection-type-lessons .summary-excerpt {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-read-more-link {
+  display: none;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-metadata-container {
+  display: none;
+  font-size: 13px;
+  line-height: normal;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title .summary-metadata-container--above-title,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title .summary-metadata-container--below-title,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-content .summary-metadata-container--below-content {
+  display: block;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-date .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-date .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-date .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-date .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-event-time .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-event-time .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-event-time .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-event-time .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-cats .summary-item-has-cats .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-cats .summary-item-has-cats .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-cats .summary-item-has-cats .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-cats .summary-item-has-cats .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-tags .summary-item-has-tags .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-tags .summary-item-has-tags .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-tags .summary-item-has-tags .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-tags .summary-item-has-tags .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-author .summary-item-has-author .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-author .summary-item-has-author .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-author .summary-item-has-author .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-author .summary-item-has-author .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-comments .summary-item-has-comments-enabled .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-comments .summary-item-has-comments-enabled .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-comments .summary-item-has-comments-enabled .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-comments .summary-item-has-comments-enabled .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-location .summary-item-has-location .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-location .summary-item-has-location .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-location .summary-item-has-location .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-location .summary-item-has-location .summary-metadata-container {
+  margin: 0 0 10px 0;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-metadata {
+  display: none;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-date .summary-metadata--primary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-event-time .summary-metadata--primary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-cats .summary-item-has-cats .summary-metadata--primary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-tags .summary-item-has-tags .summary-metadata--primary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-author .summary-item-has-author .summary-metadata--primary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-comments .summary-item-has-comments-enabled .summary-metadata--primary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-location .summary-item-has-location .summary-metadata--primary {
+  display: inline-block;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-date .summary-metadata--secondary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-event-time .summary-metadata--secondary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-cats .summary-item-has-cats .summary-metadata--secondary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-tags .summary-item-has-tags .summary-metadata--secondary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-author .summary-item-has-author .summary-metadata--secondary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-comments .summary-item-has-comments-enabled .summary-metadata--secondary,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-location .summary-item-has-location .summary-metadata--secondary {
+  display: inline-block;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-metadata-item {
+  display: none;
+  opacity: 0.7;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4em;
+  text-transform: none;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-metadata-item a,
+.sqs-block[data-definition-name="website.components.summary"] .summary-metadata-item a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-date .summary-metadata--primary .summary-metadata-item--date,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-event-time .summary-metadata--primary .summary-metadata-item--event-time,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-cats .summary-item-has-cats .summary-metadata--primary .summary-metadata-item--cats,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-tags .summary-item-has-tags .summary-metadata--primary .summary-metadata-item--tags,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-author .summary-item-has-author .summary-metadata--primary .summary-metadata-item--author,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-comments .summary-item-has-comments-enabled .summary-metadata--primary .summary-metadata-item--comments,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-primary-metadata-location .summary-item-has-location .summary-metadata--primary .summary-metadata-item--location {
+  display: inline-block;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-date .summary-metadata--secondary .summary-metadata-item--date,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-event-time .summary-metadata--secondary .summary-metadata-item--event-time,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-cats .summary-item-has-cats .summary-metadata--secondary .summary-metadata-item--cats,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-tags .summary-item-has-tags .summary-metadata--secondary .summary-metadata-item--tags,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-author .summary-item-has-author .summary-metadata--secondary .summary-metadata-item--author,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-comments .summary-item-has-comments-enabled .summary-metadata--secondary .summary-metadata-item--comments,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-location .summary-item-has-location .summary-metadata--secondary .summary-metadata-item--location {
+  display: inline-block;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-date .summary-metadata--primary .summary-metadata-item:after,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-event-time .summary-metadata--primary .summary-metadata-item:after,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-cats .summary-item-has-cats .summary-metadata--primary .summary-metadata-item:after,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-tags .summary-item-has-tags .summary-metadata--primary .summary-metadata-item:after,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-author .summary-item-has-author .summary-metadata--primary .summary-metadata-item:after,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-comments .summary-item-has-comments-enabled .summary-metadata--primary .summary-metadata-item:after,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-secondary-metadata-location .summary-item-has-location .summary-metadata--primary .summary-metadata-item:after {
+  content: " ·";
+  margin: 0 0.3em;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-size-extralarge .summary-title {
+  font-size: 54px;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-size-extralarge .summary-excerpt p {
+  font-size: 16px;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-size-large .summary-title {
+  font-size: 30px;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-size-medium .summary-title {
+  font-size: 20px;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-size-small .summary-title {
+  font-size: 14px;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-align-center .summary-title,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-align-center .summary-price .product-price,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-align-center .summary-excerpt p,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-align-center .summary-read-more-link,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-align-center .summary-content {
+  text-align: center;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-align-right .summary-title,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-align-right .summary-price .product-price,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-align-right .summary-excerpt p,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-align-right .summary-read-more-link,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-text-align-right .summary-content {
+  text-align: right;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-item-record-type-text .summary-read-more-link {
+  display: block;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-item-record-type-event .summary-thumbnail-event-date {
+  display: table;
+}
+.sqs-block[data-definition-name="website.components.summary"] .event-time-12hr {
+  display: none;
+}
+.sqs-block[data-definition-name="website.components.summary"] .event-time-localized {
+  display: inline;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-thumbnail-container {
+  margin: 0;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-show-title .summary-thumbnail-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-show-price .summary-item-record-type-store-item .summary-thumbnail-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-show-excerpt .summary-thumbnail-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-primary-metadata-none) .summary-thumbnail-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-secondary-metadata-none) .summary-thumbnail-container {
+  margin: 0 0 15px 0;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt) .summary-title,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt) .summary-price {
+  margin: 0 0 2px 0;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-date .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-date .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-date .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-date .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-event-time .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-event-time .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-event-time .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-event-time .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-cats .summary-item-has-cats .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-cats .summary-item-has-cats .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-cats .summary-item-has-cats .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-cats .summary-item-has-cats .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-tags .summary-item-has-tags .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-tags .summary-item-has-tags .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-tags .summary-item-has-tags .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-tags .summary-item-has-tags .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-author .summary-item-has-author .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-author .summary-item-has-author .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-author .summary-item-has-author .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-author .summary-item-has-author .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-comments .summary-item-has-comments-enabled .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-comments .summary-item-has-comments-enabled .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-comments .summary-item-has-comments-enabled .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-comments .summary-item-has-comments-enabled .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-primary-metadata-location .summary-item-has-location .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-primary-metadata-location .summary-item-has-location .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-above-title.summary-block-setting-secondary-metadata-location .summary-item-has-location .summary-metadata-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-wrapper:not(.summary-block-setting-show-excerpt).summary-block-setting-metadata-position-below-title.summary-block-setting-secondary-metadata-location .summary-item-has-location .summary-metadata-container {
+  margin: 0 0 2px 0;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list {
+  /* ----- Image Alignment Display Settings ----- */
+  /* ----- Products -----*/
+  /* ----- Events ----- */
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-item {
+  visibility: visible !important;
+  margin-bottom: 17px !important;
+  padding-bottom: 17px !important;
+  overflow: hidden;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-item.summary-item-show-thumbnail {
+  margin-bottom: 17px !important;
+  padding-bottom: 17px !important;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-item .summary-thumbnail-container {
+  margin: 0 !important;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-item:not(.summary-item-record-type-video) .summary-thumbnail-container {
+  width: 100% !important;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-item.summary-item-record-type-video .summary-thumbnail-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-thumbnail-outer-container {
+  float: left;
+}
+@media screen and (max-width: 640px) {
+  .sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-item.summary-item-record-type-video .summary-thumbnail-container,
+  .sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-thumbnail-outer-container {
+    width: 35% !important;
+  }
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-item .summary-thumbnail-container .sqs-video-wrapper img {
+  max-width: 100%;
+  object-fit: contain;
+  position: static !important;
+}
+@media screen and (max-width: 640px) {
+  .sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-item .summary-thumbnail-container .sqs-video-wrapper img {
+    height: auto;
+    position: static;
+    width: 100% !important;
+  }
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .sqs-product-quick-view-button-wrapper {
+  padding-right: 20px;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list.summary-block-setting-design-list-thumbnail-right .summary-item-record-type-video .summary-thumbnail-container,
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list.summary-block-setting-design-list-thumbnail-right .summary-thumbnail-outer-container {
+  float: right;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list.summary-block-setting-design-list-thumbnail-right .summary-thumbnail-container {
+  padding: 0 0 0 20px;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list.summary-block-setting-design-list-thumbnail-right .sqs-product-quick-view-button-wrapper {
+  padding-left: 20px;
+  padding-right: 0px;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list.summary-block-setting-design-list-thumbnail-right .summary-item-record-type-store-item .product-mark {
+  right: 0;
+  left: auto;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-item-record-type-store-item .product-mark {
+  left: 0;
+  right: auto;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-list .summary-item-record-type-event .summary-thumbnail-event-date {
+  display: none;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-carousel .summary-carousel-pager {
+  display: flex;
+  justify-content: flex-end;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-carousel .summary-block-header {
+  overflow: hidden;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-carousel .summary-heading {
+  display: block;
+  float: left;
+  width: calc(100% -  50px);
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-carousel .summary-collection-title {
+  display: none;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-carousel .summary-carousel-pager {
+  float: right;
+  width: 50px;
+}
+.sqs-block[data-definition-name="website.components.summary"] .summary-block-setting-design-carousel .summary-item:not(.positioned) {
+  visibility: visible;
+}
+@media screen and (max-width: 700px) {
+  .sqs-block[data-definition-name="website.components.summary"] .sqs-block-summary-v2 .summary-product-quick-view {
+    display: none;
+  }
+}
+

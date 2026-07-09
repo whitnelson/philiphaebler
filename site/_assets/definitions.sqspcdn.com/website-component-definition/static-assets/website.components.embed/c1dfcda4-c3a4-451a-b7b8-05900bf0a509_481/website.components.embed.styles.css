@@ -1,0 +1,36 @@
+.sqs-block[data-definition-name="website.components.embed"] .sqs-video-overlay {
+  transition: opacity 1000ms ease;
+}
+.sqs-block[data-definition-name="website.components.embed"] .intrinsic,
+.sqs-block[data-definition-name="website.components.embed"] .sqs-block-content .intrinsic {
+  position: relative;
+}
+.sqs-block[data-definition-name="website.components.embed"] .intrinsic .embed-block-wrapper:not(.embed-block-provider-SoundCloud),
+.sqs-block[data-definition-name="website.components.embed"] .sqs-block-content .intrinsic .embed-block-wrapper:not(.embed-block-provider-SoundCloud) {
+  position: relative;
+}
+.sqs-block[data-definition-name="website.components.embed"] .intrinsic .embed-block-wrapper:not(.embed-block-provider-SoundCloud) .sqs-video-wrapper,
+.sqs-block[data-definition-name="website.components.embed"] .sqs-block-content .intrinsic .embed-block-wrapper:not(.embed-block-provider-SoundCloud) .sqs-video-wrapper,
+.sqs-block[data-definition-name="website.components.embed"] .intrinsic .embed-block-wrapper:not(.embed-block-provider-SoundCloud) iframe,
+.sqs-block[data-definition-name="website.components.embed"] .sqs-block-content .intrinsic .embed-block-wrapper:not(.embed-block-provider-SoundCloud) iframe,
+.sqs-block[data-definition-name="website.components.embed"] .intrinsic .embed-block-wrapper:not(.embed-block-provider-SoundCloud) .flickr-oembed,
+.sqs-block[data-definition-name="website.components.embed"] .sqs-block-content .intrinsic .embed-block-wrapper:not(.embed-block-provider-SoundCloud) .flickr-oembed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.sqs-block[data-definition-name="website.components.embed"] .intrinsic .sqs-video-overlay img,
+.sqs-block[data-definition-name="website.components.embed"] .sqs-block-content .intrinsic .sqs-video-overlay img {
+  max-width: none;
+}
+.sqs-block[data-definition-name="website.components.embed"] .intrinsic .embed-block-provider-SoundCloud,
+.sqs-block[data-definition-name="website.components.embed"] .sqs-block-content .intrinsic .embed-block-provider-SoundCloud {
+  padding-bottom: 0 !important;
+}
+.sqs-block[data-definition-name="website.components.embed"] .intrinsic .embed-block-provider-SoundCloud iframe,
+.sqs-block[data-definition-name="website.components.embed"] .sqs-block-content .intrinsic .embed-block-provider-SoundCloud iframe {
+  width: 100%;
+}
+

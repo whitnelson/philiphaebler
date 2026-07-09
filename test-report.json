@@ -1,0 +1,354 @@
+{
+  "pages": {
+    "https://www.philiphaebler.com/": {
+      "local": "http://localhost:8765/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/about": {
+      "local": "http://localhost:8765/about/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/blog": {
+      "local": "http://localhost:8765/blog/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/blog/2016/9/29/what-a-long-long-trip-trip-its-been": {
+      "local": "http://localhost:8765/blog/2016/9/29/what-a-long-long-trip-trip-its-been/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/blog?author=57bb72ab5016e15a59375cd0": {
+      "local": "http://localhost:8765/blog/index.html?author=57bb72ab5016e15a59375cd0",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/contact": {
+      "local": "http://localhost:8765/contact/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/cuba": {
+      "local": "http://localhost:8765/cuba/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/iceland": {
+      "local": "http://localhost:8765/iceland/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/mongolia": {
+      "local": "http://localhost:8765/mongolia/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/myanmar": {
+      "local": "http://localhost:8765/myanmar/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/palouse": {
+      "local": "http://localhost:8765/palouse/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/patagonia": {
+      "local": "http://localhost:8765/patagonia/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/portfolio": {
+      "local": "http://localhost:8765/portfolio/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/portfolio-LVW8P": {
+      "local": "http://localhost:8765/portfolio-LVW8P/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    },
+    "https://www.philiphaebler.com/travel": {
+      "local": "http://localhost:8765/travel/index.html",
+      "page_errors": [],
+      "console": [
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-cldr_resource_pack"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors_stable"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-common_vendors"
+        },
+        {
+          "type": "warning",
+          "text": "yui: NOT loaded: squarespace-performance"
+        }
+      ],
+      "failed_requests": []
+    }
+  },
+  "summary": {
+    "errors": 0,
+    "warnings": 60,
+    "failed_requests": 0
+  }
+}
