@@ -159,14 +159,25 @@ def patch_html_delivery(text: str, base: str) -> str:
     text = text.replace("site.css.ce97a3fe", "site.css")
     text = text.replace("/combo/.baa6bf59", "/combo/.baa6bf59.js")
 
+    text = re.sub(
+        r'(<img\b[^>]*data-src="[^"]+")/\s*src="([^"]+)">',
+        r'\1 src="\2"/>',
+        text,
+    )
+
     def add_img_src(match: re.Match) -> str:
         tag = match.group(0)
-        if ' src="' in tag or " src='" in tag:
+        if re.search(r'\ssrc=["\']', tag):
             return tag
         data_src = re.search(r'data-src="([^"]+)"', tag)
         if not data_src:
             return tag
-        return tag[:-1] + f' src="{data_src.group(1)}">'
+        src_attr = f' src="{data_src.group(1)}"'
+        if tag.endswith("/>"):
+            return tag[:-2] + src_attr + "/>"
+        if tag.endswith(">"):
+            return tag[:-1] + src_attr + ">"
+        return tag
 
     text = re.sub(r"<img\b[^>]*data-src=\"[^\"]+\"[^>]*/?>", add_img_src, text)
 
