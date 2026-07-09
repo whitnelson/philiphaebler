@@ -22,6 +22,20 @@ HOST_MAP = {
 
 TEXT_SUFFIXES = {".html", ".js", ".css", ".svg", ".json"}
 
+EXTRACT_CSS = (
+    "35ebb88013744865-min.en-US.css",
+    "8308d1793f387442-min.en-US.css",
+)
+
+BOOTSTRAP_PATCH = (
+    '<script data-archive-bootstrap="">(function(){function boot(){'
+    "document.querySelectorAll('img[data-src]').forEach(function(i){"
+    "if(!i.getAttribute('src'))i.setAttribute('src',i.getAttribute('data-src'));});"
+    "document.documentElement.classList.remove('wf-loading');}"
+    "if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);"
+    "else boot();})();</script>"
+)
+
 
 def build_runtime_patch(base: str) -> str:
     pairs = []
@@ -95,6 +109,7 @@ def rewrite_all_text_files(site_dir: Path, base: str) -> int:
             continue
         new = rewrite_asset_paths(text, base)
         if path.suffix == ".html":
+            new = patch_html_delivery(new, base)
             new = inject_runtime_patch(new, base)
         if "/_assets/tk/" in str(path) and path.suffix == ".js":
             new = patch_typekit_js(new, base)
@@ -102,6 +117,21 @@ def rewrite_all_text_files(site_dir: Path, base: str) -> int:
             path.write_text(new, encoding="utf-8")
             changed += 1
     return changed
+
+
+def fix_asset_extensions(site_dir: Path, base: str) -> None:
+    """Give key assets proper file extensions so GitHub Pages serves correct MIME types."""
+    for hashed_css in site_dir.rglob("site.css.*"):
+        if hashed_css.name == "site.css":
+            continue
+        plain = hashed_css.with_name("site.css")
+        if not plain.exists():
+            plain.write_bytes(hashed_css.read_bytes())
+
+    for combo in site_dir.rglob("combo/.baa6bf59"):
+        js_combo = combo.with_name(".baa6bf59.js")
+        if not js_combo.exists():
+            js_combo.write_bytes(combo.read_bytes())
 
 
 def patch_typekit_js(text: str, base: str) -> str:
@@ -114,10 +144,34 @@ def patch_typekit_js(text: str, base: str) -> str:
         if f'"{pkt}/' not in text:
             text = text.replace('"/p.typekit.net/', f'"{pkt}/')
             text = text.replace("'/p.typekit.net/", f"'{pkt}/")
+        text = text.replace('"/p.typekit.net/', f'"{pkt}/')
+        text = text.replace('"ping":"/p.typekit.net/', f'"ping":"{pkt}/')
     text = text.replace(
         "if(this.j&&(a=location.hostname,!this.j.has(a)))",
         "if(false&&(a=location.hostname,!this.j.has(a)))",
     )
+    return text
+
+
+def patch_html_delivery(text: str, base: str) -> str:
+    base = base.rstrip("/")
+    text = re.sub(r'\s+crossorigin="anonymous"', "", text)
+    text = text.replace("site.css.ce97a3fe", "site.css")
+    text = text.replace("/combo/.baa6bf59", "/combo/.baa6bf59.js")
+
+    extra_css = []
+    for name in EXTRACT_CSS:
+        path = f"{base}/_assets/asq/universal/styles-compressed/{name}"
+        if f'href="{path}"' not in text:
+            extra_css.append(
+                f'<link href="{path}" rel="stylesheet" type="text/css"/>'
+            )
+    if extra_css and "</head>" in text:
+        text = text.replace("</head>", "".join(extra_css) + "</head>", 1)
+
+    if 'data-archive-bootstrap=""' not in text:
+        text = text.replace("</body>", BOOTSTRAP_PATCH + "</body>", 1)
+
     return text
 
 
@@ -158,6 +212,8 @@ def patch_tree(site_dir: Path, base: str) -> int:
     pkt_target = site_dir / "pkt"
     if pkt_root.is_dir() and not pkt_target.exists():
         pkt_root.rename(pkt_target)
+
+    fix_asset_extensions(site_dir, base)
 
     changed = 0
     for path in site_dir.rglob("*.html"):
