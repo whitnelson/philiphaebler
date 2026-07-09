@@ -157,7 +157,8 @@ def patch_html_delivery(text: str, base: str) -> str:
     base = base.rstrip("/")
     text = re.sub(r'\s+crossorigin="anonymous"', "", text)
     text = text.replace("site.css.ce97a3fe", "site.css")
-    text = text.replace("/combo/.baa6bf59", "/combo/.baa6bf59.js")
+    text = re.sub(r"/combo/\.baa6bf59(?:\.js)+", "/combo/.baa6bf59.js", text)
+    text = re.sub(r"/combo/\.baa6bf59(?!\.js)", "/combo/.baa6bf59.js", text)
 
     text = re.sub(
         r'(<img\b[^>]*data-src="[^"]+")/\s*src="([^"]+)">',
