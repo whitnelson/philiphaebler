@@ -27,9 +27,16 @@ Upload the entire `site/` directory to your web server document root.
 This repo publishes from the `docs/` folder to
 https://whitnelson.github.io/philiphaebler/
 
-After re-archiving, sync the build output into `docs/` and keep `.nojekyll` at
-the root of `docs/`. Without it, GitHub Pages' Jekyll step strips the `_assets/`
-directory and the site loads without CSS, JavaScript, or images.
+After re-archiving, sync the build output into `docs/`, then run:
+
+```bash
+python3 scripts/patch_github_pages.py
+```
+
+That adds `.nojekyll`, rewrites Squarespace CDN URLs to local `_assets/`,
+fixes Typekit font paths for the `/philiphaebler/` base URL, and injects a
+runtime rewriter so dynamically loaded CSS/JS also resolves locally. Without
+`.nojekyll`, GitHub Pages' Jekyll step strips the `_assets/` directory entirely.
 
 Apache users: `.htaccess` is included for directory index routing.
 
